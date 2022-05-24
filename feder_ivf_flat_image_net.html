@@ -10,7 +10,7 @@
 </head>
 
 <body style="background: #000">
-  <div id="feder-container-1314842" />
+  <div id="feder-container-2322056" />
 </body>
 
 <script type="module">
@@ -23,16 +23,16 @@ const mediaUrls = ['imageNet_subset/train/mixing_bowl/n03775546_1526.JPEG','imag
 const mediaCallback = (rowId) => rowId in mediaUrls ? mediaUrls[rowId] : null
 
 const feder = new Feder({
-    filePath: "faiss_image_net.index",
-    source: "faiss",
-    domSelector: "#feder-container-1314842",
+    filePath: "hnswlib_image_net.index",
+    source: "hnswlib",
+    domSelector: "#feder-container-2322056",
     viewParams: {
-        ...{'width': 950, 'height': 600, 'mediaType': 'img', 'fineSearchWithProjection': 1, 'projectMethod': 'umap'},
+        ...{'width': 950, 'height': 600, 'mediaType': 'img'},
         mediaCallback,
     }
 })
         
-feder.setSearchParams({'k': 5, 'nprobe': 6})
+feder.setSearchParams({'k': 4, 'ef_search': 6})
 feder.searchById(833)
         
 </script>
